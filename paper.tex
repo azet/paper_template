@@ -1,0 +1,79 @@
+% >> BEGINNING OF DOCUMENT <<
+%
+% Document style configuration and additional useful packages
+%
+\documentclass[11pt, a4paper]{article}
+\input{git}
+\usepackage{quattrocento}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage[english=usenglishmax]{hyphsubst}
+\usepackage{mathtools}
+\usepackage{cryptocode}
+\usepackage{minted} %% lang.-specific highlighting
+\usemintedstyle{pastie}
+\usepackage{url}
+\pagenumbering{arabic}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{fancyhdr}
+
+% --------------------------------------------------------------------------------------
+% Title, Authors, Affil, Date et cetera
+%
+\title{Some title}
+
+\date{\today}
+
+\author{Aaron Zauner}
+%XXX/TODO: affiliation
+
+% --------------------------------------------------------------------------------------
+% start of LaTeX document structure (page style, footer/header etc)
+%
+\begin{document}
+\maketitle
+\makeatletter
+
+\let\runtitle\@title
+\let\runauthor\@author
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{\runtitle}
+\rhead{\scriptsize\thepage}
+\rfoot{\tiny\textlf{\emph{\today}}\\\href{https://github.com/project/lol}} %XXX/TODO: change to actual website!
+\lfoot{
+  \scriptsize \textbf{git:} \tiny \texttt{\gitabbrhash} @ \emph{\gitauthdate}\\ %XXX/TODO: href commit to github
+  \vspace{2}
+  \hspace{14}\textsf{\gitauthuser \hspace{2} <\gitauthmail>}\\
+}
+
+
+% --------------------------------------------------------------------------------------
+% Abstract (optional footnote on copyright, author order, whatever,..)
+%
+\abstract{abstract for scientific work}
+
+% --------------------------------------------------------------------------------------
+%  Main document content starts here (sections, subsections,..)
+%
+\section{Introduction}
+
+%% syntax highlighting example
+\begin{minted}[linenos]{python}
+class Bar:
+  def foo(k, v):
+    return k ** v
+
+\end{minted}
+
+\section{Acknowledgements}
+
+
+\clearpage
+\bibliography{cryptobib/abbrev3,cryptobib/crypto}
+
+\end{document}
+%EOF
