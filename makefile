@@ -25,7 +25,7 @@ git:
 		\\gdef\\gitauthdate{%aI}" >> git.tex
 
 submission: git $(TARGET)
-	git tag -s -m 'automatically tagged via "make submission"' \
+	git tag -s -m "[auto] $(PUBLICATION) @ $(TIMESTAMP)" \
 		"$(TARGET)-$(PUBLICATION)@$(TIMESTAMP)+$(GITKEY)"
 
 clean:
