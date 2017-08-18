@@ -3,21 +3,38 @@
 % Document style configuration and additional useful packages
 %
 \documentclass[11pt, a4paper]{article}
+\usepackage[titletoc, toc]{appendix}
 \input{git}
 \usepackage{quattrocento}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
-\usepackage[english]{babel}
-\usepackage[english=usenglishmax]{hyphsubst}
+\usepackage[english]{babel, hyphsubst}
 \usepackage{mathtools}
 \usepackage{cryptocode}
 \usepackage{minted} %% lang.-specific highlighting
-\usemintedstyle{pastie}
+\usemintedstyle{pastie} %% highlighting-style
 \usepackage{url}
+\urlstyle{same}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage[capitalize]{cleveref}
+\usepackage{tikz}
+\usetikzlibrary{positioning, decorations, pathmorphing, calc}
 \pagenumbering{arabic}
-\renewcommand{\headrulewidth}{0pt}
 \usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\todo}[1]{\textcolor{red}{XXX/TODO: #1}}
+\newcommand{\textlf}[1]{#1} % dummy command to avoid LaTeX errors
+
+\usepackage{lipsum} %% XXX/TODO: Remove!
+
 
 % --------------------------------------------------------------------------------------
 % Title, Authors, Affil, Date et cetera
@@ -60,17 +77,23 @@
 %  Main document content starts here (sections, subsections,..)
 %
 \section{Introduction}
+bla bla
 
-%% syntax highlighting example
-\begin{minted}[linenos]{python}
-class Bar:
-  def foo(k, v):
-    return k ** v
+  \subsection{Lorem Ipsum}
+    \todo{remove lipsum!}
+    \lipsum
 
-\end{minted}
+  \subsection{Code Example}
+    %% syntax highlighting example
+    \begin{minted}[linenos]{python}
+    class Bar:
+      def foo(k, v):
+        return k ** v
 
+    \end{minted}
 \section{Acknowledgements}
 
+test bla bla
 
 \clearpage
 \bibliography{cryptobib/abbrev3,cryptobib/crypto}
